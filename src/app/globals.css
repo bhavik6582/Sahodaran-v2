@@ -38,8 +38,23 @@ body {
 
 .container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+}
+
+/* Fluid Typography */
+:root {
+    font-size: clamp(14px, 1vw + 8px, 16px);
+}
+
+/* Responsive Spacing */
+:root {
+    --space-xs: clamp(0.75rem, 2vw, 1rem);
+    --space-sm: clamp(1rem, 3vw, 1.5rem);
+    --space-md: clamp(1.5rem, 5vw, 2rem);
+    --space-lg: clamp(2rem, 7vw, 3rem);
+    --space-xl: clamp(3rem, 10vw, 4rem);
 }
 
 @tailwind base;

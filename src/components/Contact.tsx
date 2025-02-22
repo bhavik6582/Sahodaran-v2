@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { RiMapPinLine, RiPhoneLine, RiMailLine, RiSendPlaneLine, RiTimeLine } from 'react-icons/ri';
+import React, { useState } from 'react';
+import { RiMapPinLine, RiPhoneLine, RiMailLine, RiTimeLine, RiSendPlaneLine } from 'react-icons/ri';
 import useWeb3Forms from '@web3forms/react';
 
 export default function Contact() {
@@ -41,7 +41,7 @@ export default function Contact() {
       setIsSuccess(true);
       setFormState({ name: '', email: '', message: '' });
     } catch (err) {
-      console.error('Form submission failed:', err);
+      console.error('Failed to submit form:', err);
     } finally {
       setIsSubmitting(false);
     }
@@ -52,6 +52,7 @@ export default function Contact() {
       ...prev,
       [e.target.id]: e.target.value
     }));
+// Remove setError line since error state is not defined
     setIsSuccess(false);
   };
 
@@ -82,13 +83,13 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="contact-content grid lg:grid-cols-2 gap-12 items-start">
+        <div className="contact-content grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Contact Information */}
-          <div className="contact-info space-y-8">
+          <div className="contact-info space-y-6 lg:space-y-8">
             {/* Contact Cards */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Address Card */}
-              <div className="contact-card bg-[var(--background)] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)]">
+              <div className="contact-card bg-[var(--background)] p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)]">
                 <div className="icon-wrapper bg-[var(--accent)]/10 text-[var(--accent)] p-4 rounded-xl mb-4 inline-block">
                   <RiMapPinLine className="text-3xl" />
                 </div>
@@ -247,6 +248,9 @@ export default function Contact() {
                 </div>
 
                 {/* Form Status Messages */}
+                {/* Error message removed since error state is not defined */}
+                  <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg">
+                  </div>
                 {isSuccess && (
                   <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg">
                     Thank you for your message! We'll get back to you soon.

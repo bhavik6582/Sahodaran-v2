@@ -70,7 +70,7 @@ export default function Achievements() {
   return (
     <main className="min-h-screen py-24 bg-[var(--background)]">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[var(--background-secondary)] py-16 lg:py-24">
+      <section className="relative overflow-hidden bg-[var(--background-secondary)] py-12 sm:py-16 lg:py-24">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -80,17 +80,17 @@ export default function Achievements() {
           </svg>
         </div>
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--accent)] mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--accent)] mb-4 sm:mb-6">
               Our Achievements
             </h1>
-            <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
               A timeline of milestones and accomplishments in our journey of supporting and empowering the LGBTQ+ community.
             </p>
           </motion.div>
@@ -108,7 +108,7 @@ export default function Achievements() {
             <div className="space-y-16">
               {achievements.map((achievement, index) => (
                 <motion.div
-                  key={`${achievement.title}-${index}`}
+                  key={achievement.title}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -123,7 +123,7 @@ export default function Achievements() {
                   {/* Content */}
                   <div className={`md:col-span-1 ${index % 2 === 0 ? 'md:pr-16' : 'md:pl-16 md:order-2'}`}>
                     <div className="bg-[var(--background-secondary)] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
-                      {/* Removed year display since it's not defined in achievements array */}
+                      <div className="text-3xl font-bold text-[var(--accent)] mb-2">{achievement.title}</div>
                       <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">{achievement.title}</h3>
                       <p className="text-[var(--text-secondary)]">{achievement.description}</p>
                     </div>

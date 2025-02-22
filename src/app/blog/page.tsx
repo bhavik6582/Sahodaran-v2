@@ -71,7 +71,7 @@ export default function Blog() {
   return (
     <main className="min-h-screen py-24 bg-[var(--background)]">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[var(--background-secondary)] py-16 lg:py-24">
+      <section className="relative overflow-hidden bg-[var(--background-secondary)] py-12 sm:py-16 lg:py-24">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -81,17 +81,17 @@ export default function Blog() {
           </svg>
         </div>
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--accent)] mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--accent)] mb-4 sm:mb-6">
               Our Blog
             </h1>
-            <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
               Stay updated with the latest news, stories, and insights from Sahodaran's community.
             </p>
           </motion.div>
